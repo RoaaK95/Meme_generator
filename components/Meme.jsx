@@ -1,6 +1,21 @@
 import React from "react";
 
 export default function Meme(){
+
+    const [meme,setMeme] = useState({
+        topText:"",
+        bottomText:"",
+        randomImage: "http://i.imgflip.com/1bij.jpg"
+    })
+   
+    function handleChange(event){
+        const {name,value}= event.target;
+        setMeme(prevMeme =>({
+            ...prevMeme,
+            [name]:value
+        })
+        )
+    }
     return(
        <main>
         <div className="form">
@@ -8,11 +23,17 @@ export default function Meme(){
                 type="text"
                 placeholder="Top Text"
                 className="form--input"
+                name="topText"
+                value={meme.topText}
+                onChange={handleChange}
             />
             <input 
                 type="text"
                 placeholder="Bottom Text"
                 className="form--input"
+                name="bottomText"
+                value={meme.bottomText}
+                onChange={handleChange}
             />
             <button 
                className="form--button"
@@ -22,9 +43,9 @@ export default function Meme(){
         </div>
 
         <div className="meme">
-             <img src="./images/One-Does-Not-Simply-m1zju.jpg" className="meme--image" />
-             <h2 className="meme--text top">Top text</h2>
-             <h2 className="meme--text bottom">Bottom text</h2>
+             <img src={meme.randomImage} className="meme--image" />
+             <h2 className="meme--text top">{meme.topText}</h2>
+             <h2 className="meme--text bottom">{meme.bottomText}</h2>
         </div>
         
        </main>
