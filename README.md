@@ -1,3 +1,4 @@
 # Meme_Generator
 
-A meme generator that takes top and bottom text then generate a meme using a random image.
+
+A webApp that takes top and bottom texts then generate a meme by making an API call to get a random image.
