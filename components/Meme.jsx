@@ -10,7 +10,16 @@ export default function Meme(){
    
    const [allMemes,setAllMemes] = useState([])
 
-   
+   useEffect(() => {
+      async function getMemes(){
+        const res = await fetch("https://api.imgflip.com/get_memes")
+        const data = await res.json()
+        setAllMemes(data.data.memes)
+      }
+      getMemes()
+   },[])
+
+
    function getMemeImage(){
        const randomNumber = Math.floor(Math.random() * allMemes.length)
        const url = allMemes[randomNumber].url
@@ -19,6 +28,8 @@ export default function Meme(){
         randomImage: url
        }))
    }
+
+   
     function handleChange(event){
         const {name,value}= event.target;
         setMeme(prevMeme =>({
