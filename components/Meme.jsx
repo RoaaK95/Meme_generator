@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Meme(){
 
@@ -8,6 +8,17 @@ export default function Meme(){
         randomImage: "http://i.imgflip.com/1bij.jpg"
     })
    
+   const [allMemes,setAllMemes] = useState([])
+
+   
+   function getMemeImage(){
+       const randomNumber = Math.floor(Math.random() * allMemes.length)
+       const url = allMemes[randomNumber].url
+       setMeme(prevMeme => ({
+        ...prevMeme,
+        randomImage: url
+       }))
+   }
     function handleChange(event){
         const {name,value}= event.target;
         setMeme(prevMeme =>({
@@ -37,6 +48,7 @@ export default function Meme(){
             />
             <button 
                className="form--button"
+               onClick={getMemeImage}
             >
                Get a new meme image 🖼
             </button>
