@@ -10,6 +10,7 @@
 - React
 
 ## Screenshots  
+
 ![Start_Screen](https://github.com/user-attachments/assets/9752c3ba-08f2-4b20-a47f-e96a3461991e)
   
 ![Meme_generated_screen](https://github.com/user-attachments/assets/26ac0f4c-dc46-437b-b2ee-6c809a8cb922)
